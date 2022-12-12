@@ -1,4 +1,8 @@
-//Rock Paper Scissors Game
+// Rock Paper Scissors Game by https://github.com/KAlamurov
+
+const playerSelection = "rOcK";
+
+// Computer choice function with Math.random
 
 let getComputerChoice = () => {
     let choices = Array("Rock", "Paper", "Scissors");
@@ -6,6 +10,9 @@ let getComputerChoice = () => {
     let randomItem = choices[randomIndex];
     return randomItem;
 }
+
+// playRound function with user input being manipulated with charAt, toUpperCase and toLowerCase
+// Using switch statemens for returning the outcome of the game
 
 let playRound = (playerSelection, ComputerSelection) => {
 
@@ -65,6 +72,38 @@ switch (ComputerSelection) {
 
 }
 
-const playerSelection = "rOcK";
-const ComputerSelection = getComputerChoice();
-console.log(playRound(playerSelection,ComputerSelection));
+//console.log(playRound(playerSelection,ComputerSelection));
+
+
+let game = () => {
+    let playerWinCount = 0;
+    let computerWinCount = 0;
+    for (let i = 0; i < 5; i++) {
+        let ComputerSelection = getComputerChoice();
+        switch (playRound(playerSelection, ComputerSelection)) {
+            case "Win!":
+                playerWinCount++
+                break;
+            case "Lose!":
+                computerWinCount++
+                break;
+            case "Even!":
+                computerWinCount++
+                playerWinCount++
+                break;
+        }
+    }
+    console.log(`Player ${playerWinCount} , Computer ${computerWinCount}`);
+    
+    if (playerWinCount > computerWinCount) {
+        console.log("Congratulations, you win !");
+    }
+    else if (playerWinCount == computerWinCount) {
+        console.log("You are even !");
+    }
+    else {
+        console.log("Sorry, you lost !");
+    }
+    }
+
+console.log(game());
