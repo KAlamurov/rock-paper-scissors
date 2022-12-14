@@ -1,8 +1,9 @@
 // Rock Paper Scissors Game by https://github.com/KAlamurov
 
-const playerSelection = "rOcK";
-
-// Computer choice function with Math.random
+const mainDiv = document.querySelector('#main');
+const div = document.createElement('div');
+let playerScore = 0;
+let computerScore = 0;
 
 let getComputerChoice = () => {
     let choices = Array("Rock", "Paper", "Scissors");
@@ -11,63 +12,94 @@ let getComputerChoice = () => {
     return randomItem;
 }
 
-// playRound function with user input being manipulated with charAt, toUpperCase and toLowerCase
-// Using switch statemens for returning the outcome of the game
-
 let playRound = (playerSelection, ComputerSelection) => {
 
-playerSelectionFixed = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-switch (ComputerSelection) {
-    case "Rock":
-        switch (playerSelectionFixed) {
-            case "Scissors":
-                console.log("Player: Scissors, Computer: Rock");
-                return "Lose!";
-                break;
-            case "Paper":
-                console.log("Player: Paper, Computer: Rock");
-                return "Win!";
-                break;
-            case "Rock":
-                console.log("Player: Rock, Computer: Rock");
-                return "Even!";
-                break;
-        }
-        break;
+    playerSelectionFixed = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+    switch (ComputerSelection) {
+        case "Rock":
+            switch (playerSelectionFixed) {
+                case "Scissors":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Scissors, Computer: Rock';
+                    mainDiv.appendChild(div);
+                    return "Lose!";
+                    break;
+                case "Paper":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Paper, Computer: Rock';
+                    mainDiv.appendChild(div);
+                    return "Win!";
+                    break;
+                case "Rock":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Rock, Computer: Rock';
+                    mainDiv.appendChild(div);
+                    return "Even!";
+                    break;
+            }
+            break;
 
-    case "Paper":
-        switch (playerSelectionFixed) {
-            case "Scissors":
-                console.log("Player: Scissors, Computer: Paper");
-                return "Win!";
-                break;
-            case "Paper":
-                console.log("Player: Paper, Computer: Paper");
-                return "Even!";
-                break;
-            case "Rock":
-                console.log("Player: Rock, Computer: Paper");
-                return "Lose!";
-                break;
-        }
-        break;
+        case "Paper":
+            switch (playerSelectionFixed) {
+                case "Scissors":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Scissors, Computer: Paper';
+                    mainDiv.appendChild(div);
+                    return "Win!";
+                    break;
+                case "Paper":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Paper, Computer: Paper';
+                    mainDiv.appendChild(div);
+                    return "Even!";
+                    break;
+                case "Rock":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Rock, Computer: Paper';
+                    mainDiv.appendChild(div);
+                    return "Lose!";
+                    break;
+            }
+            break;
 
-    case "Scissors":
-        switch (playerSelectionFixed) {
-            case "Scissors":
-                console.log("Player: Scissors, Computer: Scissors");
-                return "Even!";
-                break;
-            case "Paper":
-                console.log("Player: Paper, Computer: Scissors");
-                return "Lose!";
-                break;
-            case "Rock":
-                console.log("Player: Rock, Computer: Scissors");
-                return "Win!";
-                break;
-        }
-        break;
+        case "Scissors":
+            switch (playerSelectionFixed) {
+                case "Scissors":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Scissors, Computer: Scissors';
+                    mainDiv.appendChild(div);
+                    return "Even!";
+                    break;
+                case "Paper":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Paper, Computer: Scissors';
+                    mainDiv.appendChild(div);
+                    return "Lose!";
+                    break;
+                case "Rock":
+                    div.classList.add('gameResult');
+                    div.textContent = 'Player: Rock, Computer: Scissors';
+                    mainDiv.appendChild(div);
+                    return "Win!";
+                    break;
+            }
+            break;
 }
 
 }
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    let ComputerSelection = getComputerChoice();
+    playRound("rocK",ComputerSelection);
+});
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    let ComputerSelection = getComputerChoice();
+    playRound("PaPer", ComputerSelection);
+});
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    let ComputerSelection = getComputerChoice();
+    playRound("ScIssorS", ComputerSelection);
+});
