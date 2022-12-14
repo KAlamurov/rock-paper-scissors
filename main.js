@@ -71,39 +71,3 @@ switch (ComputerSelection) {
 }
 
 }
-
-//console.log(playRound(playerSelection,ComputerSelection));
-
-
-let game = () => {
-    let playerWinCount = 0;
-    let computerWinCount = 0;
-    for (let i = 0; i < 5; i++) {
-        let ComputerSelection = getComputerChoice();
-        switch (playRound(playerSelection, ComputerSelection)) {
-            case "Win!":
-                playerWinCount++
-                break;
-            case "Lose!":
-                computerWinCount++
-                break;
-            case "Even!":
-                computerWinCount++
-                playerWinCount++
-                break;
-        }
-    }
-    console.log(`Player ${playerWinCount} , Computer ${computerWinCount}`);
-    
-    if (playerWinCount > computerWinCount) {
-        console.log("Congratulations, you win !");
-    }
-    else if (playerWinCount == computerWinCount) {
-        console.log("You are even !");
-    }
-    else {
-        console.log("Sorry, you lost !");
-    }
-    }
-
-console.log(game());
