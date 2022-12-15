@@ -2,6 +2,7 @@
 
 const mainDiv = document.querySelector('#main');
 const div = document.createElement('div');
+const div2 = document.createElement('div');
 let playerScore = 0;
 let computerScore = 0;
 
@@ -22,19 +23,20 @@ let playRound = (playerSelection, ComputerSelection) => {
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Scissors, Computer: Rock';
                     mainDiv.appendChild(div);
-                    return "Lose!";
+                    computerScore++
                     break;
                 case "Paper":
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Paper, Computer: Rock';
                     mainDiv.appendChild(div);
-                    return "Win!";
+                    playerScore++
                     break;
                 case "Rock":
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Rock, Computer: Rock';
                     mainDiv.appendChild(div);
-                    return "Even!";
+                    computerScore++
+                    playerScore++
                     break;
             }
             break;
@@ -45,19 +47,20 @@ let playRound = (playerSelection, ComputerSelection) => {
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Scissors, Computer: Paper';
                     mainDiv.appendChild(div);
-                    return "Win!";
+                    playerScore++
                     break;
                 case "Paper":
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Paper, Computer: Paper';
                     mainDiv.appendChild(div);
-                    return "Even!";
+                    computerScore++
+                    playerScore++
                     break;
                 case "Rock":
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Rock, Computer: Paper';
                     mainDiv.appendChild(div);
-                    return "Lose!";
+                    computerScore++
                     break;
             }
             break;
@@ -68,23 +71,28 @@ let playRound = (playerSelection, ComputerSelection) => {
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Scissors, Computer: Scissors';
                     mainDiv.appendChild(div);
-                    return "Even!";
+                    computerScore++
+                    playerScore++
                     break;
                 case "Paper":
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Paper, Computer: Scissors';
                     mainDiv.appendChild(div);
-                    return "Lose!";
+                    computerScore++
                     break;
                 case "Rock":
                     div.classList.add('gameResult');
                     div.textContent = 'Player: Rock, Computer: Scissors';
                     mainDiv.appendChild(div);
-                    return "Win!";
+                    playerScore++
                     break;
             }
             break;
 }
+
+    div2.classList.add('Outcome');
+    div2.textContent = `Score - Computer: ${computerScore} , Player: ${playerScore}`;
+    mainDiv.appendChild(div2);
 
 }
 
