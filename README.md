@@ -1,6 +1,6 @@
-# rock-paper-scissors
+# Rock & Paper & Scissors Game
 
-# JavaScript course by theodinproject.com
+# JavaScript Course By theodinproject.com
 
 # Live Preview:
 <https://kalamurov.github.io/rock-paper-scissors/>
