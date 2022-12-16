@@ -4,6 +4,7 @@ const mainDiv = document.querySelector('#main');
 const div = document.createElement('div');
 const div2 = document.createElement('div');
 const div3 = document.createElement('div');
+const btnn = document.createElement("button");
 let playerScore = 0;
 let computerScore = 0;
 
@@ -95,25 +96,55 @@ let playRound = (playerSelection, ComputerSelection) => {
     div2.textContent = `Score - Computer: ${computerScore} , Player: ${playerScore}`;
     mainDiv.appendChild(div2);
 
+
     if (playerScore > 4 && computerScore < 5) {
         div3.classList.add('EndGame');
         div3.textContent = 'Congratulations, you won!';
         mainDiv.appendChild(div3);
         computerScore = 0;
-        playerScore = 0;   
+        playerScore = 0;
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;
+        btnn.innerHTML = "Try Again";
+        btnn.setAttribute("id", "retry");
+        mainDiv.appendChild(btnn);
+        btnn.addEventListener('click', () => {
+            location.reload();
+        });
+
+
     } else if (computerScore > 4 && playerScore < 5) {
         div3.classList.add('EndGame');
         div3.textContent = 'Sorry, you lost!';
         mainDiv.appendChild(div3);
         computerScore = 0;
         playerScore = 0; 
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;
+        btnn.innerHTML = "Try Again";
+        btnn.setAttribute("id", "retry");
+        mainDiv.appendChild(btnn);
+        btnn.addEventListener('click', () => {
+            location.reload();
+        });
     }
       else if (computerScore == 5 && playerScore == 5) {
         div3.classList.add('EndGame');
         div3.textContent = 'You are even!';
         mainDiv.appendChild(div3); 
         computerScore = 0;
-        playerScore = 0; 
+        playerScore = 0;
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;
+        btnn.innerHTML = "Try Again";
+        btnn.setAttribute("id", "retry");
+        mainDiv.appendChild(btnn);
+        btnn.addEventListener('click', () => {
+            location.reload();
+        });
     }
 
 }
